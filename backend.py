@@ -4,6 +4,7 @@ import base64
 import os
 import time
 from datetime import datetime
+from dotenv import load_dotenv
 
 updation_period = 60  # Check every 60 seconds
 
@@ -11,8 +12,9 @@ updation_period = 60  # Check every 60 seconds
 IMAP_SERVER = 'imap.gmail.com'
 
 # Your email credentials
-EMAIL = 'camlar1108@gmail.com'
-PASSWORD = 'hupr ejoo qcwh nwlu'
+load_dotenv()
+EMAIL = os.getenv("EMAIL")
+PASSWORD = os.getenv("PASSWORD")
 
 def authenticate_gmail():
     """Authenticate to Gmail IMAP server."""

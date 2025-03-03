@@ -69,7 +69,11 @@ def get_image_from_gmail(mail):
 
 def main():
     """Main function to authenticate and periodically check for new images."""
-    mail = authenticate_gmail()
+    try:
+        mail = authenticate_gmail()
+    except Exception as e:
+        print("Failed to atuthentical Gmail")
+        return None
     
     while True:
         image_path = get_image_from_gmail(mail)
